@@ -18,4 +18,4 @@ ENTRYPOINT ["bin/spark-class", "org.apache.spark.deploy.worker.Worker"]
 FROM spark-base AS spark-submit
 
 ENTRYPOINT ["/spark/bin/spark-submit"] 
-CMD ["--master", "spark://spark-master:7077", "--class", "org.apache.spark.examples.SparkPi", "/spark/examples/jars/spark-examples_2.11-2.4.0.jar", "1000"]
+CMD ["--master", "spark://spark-master:7077", "--class", "org.apache.spark.examples.SparkPi", "examples/jars/spark-examples_2.11-2.4.4.jar", "1000"]

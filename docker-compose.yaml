@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+        spark-master:
+                build:
+                        context: ./base
+                        target: spark-master
+                ports:
+                        - "8080:8080"
+                        - "7077:7077"
+                networks:
+                        - spark-network
+        spark-worker:
+                build:
+                        context: ./base
+                        target: spark-worker
+                command: ["--webui-port", "8080", "spark://spark-master:7077"]
+                networks:
+                        - spark-network
+
+        # Uncomment to spin-up the example application
+        #spark-example:
+                #depends_on:
+                        #- spark-master
+                        #- spark-worker
+                #build:
+                        #context: ./base
+                        #target: spark-submit
+                #networks:
+                        #- spark-network
+
+networks:
+        spark-network:
+                driver: bridge
