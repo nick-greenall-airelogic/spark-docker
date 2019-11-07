@@ -42,7 +42,7 @@ services:
                 build:
                         context: ./base
                         target: pyspark-notebook
-                command: ["--master", "spark://spark-master:7077"]
+                command: ["--master", "spark://spark-master:7077", "--name", "jupyter-notebook"]
                 init: true
                 ports:
                         - "8888:8888"

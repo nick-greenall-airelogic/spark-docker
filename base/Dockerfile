@@ -38,7 +38,7 @@ ENV PYSPARK_DRIVER_PYTHON jupyter
 ENV PYSPARK_DRIVER_PYTHON_OPTS "notebook --ip 0.0.0.0"
 
 RUN apt update && \
-    apt install -qy python3-notebook jupyter-core jupyter-notebook
+    apt install -qy python3-notebook jupyter-core jupyter-notebook jupyter-nbextension-jupyter-js-widgets
 
 RUN mkdir /data
 WORKDIR /data
